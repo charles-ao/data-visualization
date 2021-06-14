@@ -1,0 +1,24 @@
+
+
+.bar{
+    fill: steelblue;
+
+}
+
+.bar:hover {
+    fill:teal
+}
+
+.arc text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+}
+
+.arc path {
+    stroke: #fff;
+}
+
+.title {
+    fill: black;
+    font-weight:bolder
+}
