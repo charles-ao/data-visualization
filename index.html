@@ -4,15 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Visulization with D3</title>
+    <title>Data Visualization with Data Driven Document D3.JS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="bar-chart">
+    <div class="container">
+        <div id="bar-chart" class="chart">
+            <div class="title-head">
+                <h2>Gross Domestic Product Generated in the United States from 1947 - 2015 </h2>
+                <h4>Click <a href='https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json'>here</a> to view Data Source</h4>
+            </div>
+        </div>
+        <div id="choropleth" class="chart">
+            <div class="title-head">
+                <h2>United States Educational Attainment</h2>
+                <h4>Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)</h4>
+                <h4>Click <a href='https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/for_user_education.json'>here</a> to view Data Source</h4>
+            </div>
+        </div>
+        <div id="scatterplot" class="chart">
+            <div class="title-head">
+                <h2>Doping in Professional Bicycle Racing</h2>
+                <h4>35 Fastest times up Alpe d'Huez</h4>
+                <h4>Click <a href='https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json'>here</a> to view Data Source</h4>
+            </div>
+        </div>
     </div>
-    <div id="pie-chart">
-    </div>
-    <script src="index.js"></script>
+    <script src='index.js'></script>
 </body>
 </html>

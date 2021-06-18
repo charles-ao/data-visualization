@@ -1,24 +1,40 @@
 
 
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+    color: steelblue;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%
+}
+
+.chart {
+    margin: 40px;
+    text-align: center;
+}
+
+.chart svg {
+    background-color: rgb(250, 250, 250);  
+}
+
 .bar{
     fill: steelblue;
 
 }
 
-.bar:hover {
-    fill:teal
+.bar:hover, .pattern:hover  {
+    fill:pink
 }
 
-.arc text {
-    font: 10px sans-serif;
-    text-anchor: middle;
-}
-
-.arc path {
-    stroke: #fff;
-}
-
-.title {
-    fill: black;
-    font-weight:bolder
+.title-head{
+    margin: 5px
 }
