@@ -46,7 +46,8 @@ d3.json(GDP_API_URL, function(error, param) {
     let grpOne = barChart.append('g')
                 .attr('transform','translate('+padding+','+padding+')')
 
-
+    let tooltip = d3.select('#t-01')
+                .style('visibility', 'hidden')
 
     grpOne.append('g')
         .call(d3.axisLeft(yScale).tickFormat(d=> '$'+d))
@@ -86,10 +87,23 @@ d3.json(GDP_API_URL, function(error, param) {
         .attr("width", xScale.bandwidth())
         .attr("height", d =>  (height-(2*padding)) - yScale(d[1]))
 
+        .on('mouseover', (d) => {
+            tooltip.transition()
+                .style('visibility', 'visible')
+
+            tooltip.text('Year: ' +d[0]+ ' GDP: $' + d[1] )
+
+        })
+        .on('mouseout', (d) => {
+            tooltip.transition()
+                .style('visibility', 'hidden')
+
+        })
+
         .append('title')
         .attr('id','tooltip')
         .attr('data-date', d => d[0])
-        .text(d => 'Year: ' +d[0]+ ', GDP: ' + d[1] )
+        .text(d => 'Year: ' +d[0]+ ', GDP: $' + d[1] )
 
     
 });
@@ -109,8 +123,11 @@ d3.json(COUNTRY_API_URL, function(error, data){
                 console.log(error);
             } else {
                 let education = data
-                console.log(education);
-                
+
+                let tooltip = d3.select('#t-02')
+                    .style('visibility', 'hidden')
+                    .style('height', '70px')
+
                 choropleth.selectAll('path')
                     .data(country)
                     .enter()
@@ -131,6 +148,20 @@ d3.json(COUNTRY_API_URL, function(error, data){
                         } else {
                             return color[3]
                         }
+                    })
+
+                    .on('mouseover', (d) => {
+                        tooltip.transition()
+                            .style('visibility', 'visible')
+                            let id = d['id'];
+                            let county = education.find((item) => item['fips'] === id)
+                
+                            tooltip.text(county['fips'] + ' - ' + county['area_name'] + ', ' +
+                            county['state'] + ' : ' + county['bachelorsOrHigher'] + '%')
+                    })
+                    .on('mouseout', (d) => {
+                        tooltip.transition()
+                            .style('visibility', 'hidden')
                     })
 
                     .append('title')
@@ -190,6 +221,11 @@ d3.json(CYCLIST_API_URL, function(error, data) {
         let grpTwo = scatterPlot.append('g')
                         .attr('transform','translate('+(padding+20)+','+padding+')')
 
+        let tooltip = d3.select('#t-03')
+                        .style('visibility', 'hidden')
+                        .style('width', 'auto')
+                        .style('height', 'auto')
+
         grpTwo.append('g')
             .call(d3.axisLeft(yScale)
             .tickFormat(function(d){
@@ -233,6 +269,19 @@ d3.json(CYCLIST_API_URL, function(error, data) {
                 } else {
                     return 'steelblue'
                 }
+            })
+
+            .on('mouseover', (d) => {
+                tooltip.transition()
+                    .style('visibility', 'visible')
+    
+                tooltip.text(`Name: ${d['Name']} Year: ${d['Year']}, Time: ${d['Time']}
+                ${d['Doping']}
+                `)
+            })
+            .on('mouseout', (item) => {
+                tooltip.transition()
+                    .style('visibility', 'hidden')
             })
 
             .append('title')

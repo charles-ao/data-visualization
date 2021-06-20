@@ -36,5 +36,33 @@ h2 {
 }
 
 .title-head{
-    margin: 5px
+    margin: 5px;
+    position: relative;
+}
+
+.tool-tip {
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    color: steelblue;
+    padding: 10px;
+    text-align: center;
+    box-shadow:  0 5px 15px #00000033;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#t-01 {
+    top: 100px;
+    left: 550px;
+}
+
+#t-02 {
+    top: 80px;
+    right: 400px; 
+}
+
+#t-03 {
+    top: 320px;
+    right: 220px;
 }
