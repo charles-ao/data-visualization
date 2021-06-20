@@ -126,7 +126,7 @@ d3.json(COUNTRY_API_URL, function(error, data){
 
                 let tooltip = d3.select('#t-02')
                     .style('visibility', 'hidden')
-                    .style('height', '70px')
+  
 
                 choropleth.selectAll('path')
                     .data(country)
@@ -223,8 +223,7 @@ d3.json(CYCLIST_API_URL, function(error, data) {
 
         let tooltip = d3.select('#t-03')
                         .style('visibility', 'hidden')
-                        .style('width', 'auto')
-                        .style('height', 'auto')
+
 
         grpTwo.append('g')
             .call(d3.axisLeft(yScale)
