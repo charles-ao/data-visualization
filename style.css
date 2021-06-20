@@ -43,7 +43,7 @@ h2 {
 .tool-tip {
     visibility: hidden;
     width: 150px;
-    height: 60px;
+    height: fit-content;
     position: absolute;
     color: steelblue;
     padding: 10px;
